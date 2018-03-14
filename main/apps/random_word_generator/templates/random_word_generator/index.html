@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Random Word Generator</title>
+        {% load static %}
+        <link rel="stylesheet" types="text/css" href="{% static "random_word_generator/style.css" %}">
+    </head>
+    <body>
+        <div id="container">
+            <p>Random Word (attempt: #{{wNumber}})</p>
+            <h1>{{word}}</h1>
+            <form action='/random_word', method='POST'>
+                {% csrf_token %}
+                <input type="submit" value="Generate">
+            </form>
+            <form action='/reset', method='POST'>
+                {% csrf_token %}
+                <input type="submit" value="Reset Count">
+            </form>
+        </div>
+    </body>
+</html>
